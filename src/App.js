@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
-import './App.css'
+import './App.less'
 import SideMenuLayout from './SideMenuLayout'
+import "./semantic-theme/semantic.less"
+import {Button} from 'semantic-ui-react'
 
 class App extends Component {
   renderChildrent = () => {
@@ -17,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SideMenuLayout
+          <SideMenuLayout
           header={props => (
             <div>
               <button sidemenutoggle="true">toggle</button>
@@ -25,6 +27,12 @@ class App extends Component {
           )}
           sideMenu={props => (
             <ul>
+              <li>optio one</li>
+              <li>optio two</li>
+              <li>optio three</li>
+              <li>optio one</li>
+              <li>optio two</li>
+              <li>optio three</li>
               <li>optio one</li>
               <li>optio two</li>
               <li>optio three</li>
