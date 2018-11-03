@@ -3,7 +3,9 @@ import logo from './logo.svg'
 import './App.less'
 import SideMenuLayout from './SideMenuLayout'
 import "./semantic-theme/semantic.less"
-import {Button} from 'semantic-ui-react'
+import {Button, Icon} from 'semantic-ui-react'
+import VerticalMenu from "./components/VerticalMenu";
+import AppHeader from "./components/AppHeader";
 
 class App extends Component {
   renderChildrent = () => {
@@ -20,24 +22,8 @@ class App extends Component {
     return (
       <div className="App">
           <SideMenuLayout
-          header={props => (
-            <div>
-              <button sidemenutoggle="true">toggle</button>
-            </div>
-          )}
-          sideMenu={props => (
-            <ul>
-              <li>optio one</li>
-              <li>optio two</li>
-              <li>optio three</li>
-              <li>optio one</li>
-              <li>optio two</li>
-              <li>optio three</li>
-              <li>optio one</li>
-              <li>optio two</li>
-              <li>optio three</li>
-            </ul>
-          )}
+          header={<AppHeader/>}
+          sideMenu={<VerticalMenu/>}
           defaultMenuVisible
         >
           {this.renderChildrent()}
