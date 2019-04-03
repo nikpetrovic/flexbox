@@ -1,7 +1,7 @@
 {
   "name": "flexbox",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "lodash": "^4.17.10",
     "react": "^16.2.0",

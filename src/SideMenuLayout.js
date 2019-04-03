@@ -10,26 +10,30 @@ class SideMenuLayout extends Component {
     this.setState({ showSideMenu: this.props.defaultMenuVisible })
   }
 
+  remapChildren = children => React.Children.map(children, child => this.renderPartial(child))
+
   renderPartial = cmp => {
-    const component = cmp && typeof cmp === 'function' ? cmp() : cmp
+    let component = cmp && typeof cmp === 'function' ? cmp() : cmp
 
-    if (component) {
-      const children = React.Children.map(component.props.children, child => {
-        const { sidemenutoggle } = child.props
-
-        if (sidemenutoggle) {
-          return React.cloneElement(child, { ...child.props, onClick: this.onToggleSideMenu })
-        }
-
-        return child
-      })
-
-      if (children) {
-        return React.cloneElement(component, { ...component.props, children: children })
+    console.log('React.isValidElement(children)', React.isValidElement(component))
+    if (React.isValidElement(component)) {
+      const { sidemenutoggle } = component.props
+      let additionalProps = sidemenutoggle ? { onClick: this.onToggleSideMenu } : {}
+      if (sidemenutoggle) {
+        console.log('pronadjena kompoennta')
+        console.log(component)
       }
 
-      return component
+      const children = this.remapChildren(component.props.children)
+      // if (React.isValidElement(children)) {
+      return React.cloneElement(component, {
+        ...component.props,
+        children: children,
+        ...additionalProps,
+      })
+      // }
     }
+    return component
   }
 
   onToggleSideMenu = () => {
