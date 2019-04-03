@@ -1,0 +1,81 @@
+.popup-notifications-container {
+  position: absolute;
+
+  .popup-notifications {
+    padding: 1rem;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  
+  .top {
+    top: 0;
+
+    .notification-item.removing {
+      animation-name: removing-item-top;
+    }
+
+    .notification-item.adding {
+      animation-name: adding-item-top;
+    }
+  }
+
+  &.top-left {
+    .top();
+
+    left: 0;
+  }
+
+  &.top-right {
+    .top();
+    
+    right: 0;
+  }
+
+  &.top-center {
+    .top();
+
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 50%;
+  }
+
+  .bottom {
+    bottom: 0;
+
+    .notification-item.removing {
+      animation-name: removing-item-bottom;
+    }
+
+    .notification-item.adding {
+      animation-name: adding-item-bottom;
+    }
+  }
+
+  &.bottom-left {
+    .bottom();
+
+    left: 0;
+  }
+
+  &.bottom-right {
+    .bottom();
+
+    right: 0;
+  }
+
+  &.bottom-center {
+    .bottom();
+
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 50%;
+  }
+}

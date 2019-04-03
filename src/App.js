@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.less'
 import SideMenuLayout from './SideMenuLayout'
-import "./semantic-theme/semantic.less"
-import {Button} from 'semantic-ui-react'
+import TodoList from './TodoList'
+import './semantic-theme/semantic.less'
+import { Button, Message } from 'semantic-ui-react'
 
 class App extends Component {
-  renderChildrent = () => {
+  renderChildren = () => {
     const cmps = []
     for (let i = 0; i < 100; i++) {
       cmps.push(
@@ -19,28 +20,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <SideMenuLayout
+        <SideMenuLayout
           header={props => (
             <div>
               <button sidemenutoggle="true">toggle</button>
             </div>
           )}
           sideMenu={props => (
-            <ul>
-              <li>optio one</li>
-              <li>optio two</li>
-              <li>optio three</li>
-              <li>optio one</li>
-              <li>optio two</li>
-              <li>optio three</li>
-              <li>optio one</li>
-              <li>optio two</li>
-              <li>optio three</li>
-            </ul>
+            <div>
+              <Message error header="Submit Failed" content="Please complete all required fields" />
+              <ul>
+                <li>optio one</li>
+                <li>optio two</li>
+                <li>optio three</li>
+                <li>optio one</li>
+                <li>optio two</li>
+                <li>optio three</li>
+                <li>optio one</li>
+                <li>optio two</li>
+                <li>optio three</li>
+              </ul>
+              <TodoList />
+            </div>
           )}
           defaultMenuVisible
         >
-          {this.renderChildrent()}
+          {this.renderChildren()}
         </SideMenuLayout>
       </div>
     )
