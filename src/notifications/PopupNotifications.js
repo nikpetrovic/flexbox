@@ -14,7 +14,7 @@ class PopupNotifications extends PureComponent {
 
     props.addNotification(this.addNotification)
     props.clearAllNotifications(this.clearAllNotifications)
-    props.removeNotification(this.clearNotification)
+    props.removeNotification(this.markNotificationForRemoval)
   }
 
   addNotification = (type, title, description) => {
@@ -50,7 +50,7 @@ class PopupNotifications extends PureComponent {
     this.notificationTimeouts[id] = timeout
   }
 
-  clearNotification = id => {
+  markNotificationForRemoval = id => {
     const notificationToRemove = find(this.state.notifications, item => item.id === id)
     if (notificationToRemove) {
       this.setState({
