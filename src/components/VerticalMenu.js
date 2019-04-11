@@ -15,6 +15,10 @@ export class VerticalMenu extends Component {
     }
   }
 
+  clearNotifications = e => {
+    notify.clearAll()
+  }
+
   render() {
     const { activeItem } = this.state
 
@@ -31,8 +35,7 @@ export class VerticalMenu extends Component {
         </Menu.Item>
 
         <Menu.Item name="updates" active={activeItem === 'updates'} onClick={this.handleItemClick}>
-          <Label>1</Label>
-          Updates
+          <button onClick={this.clearNotifications}>Clean all notifications</button>
         </Menu.Item>
         <Menu.Item>
           <Input icon="search" placeholder="Search mail..." onKeyPress={this.onKeyPress} />

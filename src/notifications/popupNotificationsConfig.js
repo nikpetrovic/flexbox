@@ -1,5 +1,5 @@
 window.__popupNotificationsConfig = {
   position: 'top-right',
-  autoHide: true,
+  autoHide: false,
   lifetime: 4000,
 }

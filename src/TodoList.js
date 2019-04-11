@@ -32,6 +32,7 @@ export default class TodoList extends React.Component {
     return (
       <div>
         <button onClick={this.handleAdd}>Add Item</button>
+        <button>Remove all notifications</button>
         <CSSTransitionGroup
           transitionName="example"
           transitionEnterTimeout={500}

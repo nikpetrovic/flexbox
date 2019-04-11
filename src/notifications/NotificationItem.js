@@ -23,6 +23,11 @@ export default class NotificationItem extends Component {
     return classNames
   }
 
+  close = () => {
+    this.setState({ removing: true })
+    this.props.onClose(this.props.id)
+  }
+
   render() {
     const { id, type, title, description, onClose } = this.props
     const { adding, removing } = this.state
@@ -40,14 +45,7 @@ export default class NotificationItem extends Component {
           <div className="header">
             <div className="title">{title}</div>
             <div className="close-notification">
-              <i
-                className="times icon small"
-                onClick={e => {
-                  this.setState({ removing: true })
-                  onClose(id)
-                }}
-                id={id}
-              />
+              <i className="times icon small" onClick={this.close} id={id} />
             </div>
           </div>
           {description && <div className="description">{description}</div>}
@@ -67,6 +65,12 @@ export default class NotificationItem extends Component {
         this.setState({ removing: true })
         onClose(id)
       }, config.lifetime)
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.closeImmediately && this.props.closeImmediately !== prevProps.closeImmediately) {
+      this.close()
     }
   }
 

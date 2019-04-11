@@ -59,7 +59,7 @@ export default class Notify {
   }
 
   _bindClearAll = handler => {
-    this.clearAll = handler
+    this.clearAllHandler = handler
   }
 
   notify = (type, title, description) => {
@@ -83,6 +83,6 @@ export default class Notify {
   }
 
   clearAll = () => {
-    console.log('clear all')
+    this.clearAllHandler()
   }
 }
