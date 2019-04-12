@@ -12,9 +12,7 @@ class App extends Component {
   renderChildren = () => {
     const cmps = []
     for (let i = 0; i < 100; i++) {
-      cmps.push(
-        <div key={i} style={{ backgroundColor: 'yellow' }}>{`This is component ${i + 1}`}</div>
-      )
+      cmps.push(<div key={i}>{`This is component ${i + 1}`}</div>)
     }
     return cmps
   }

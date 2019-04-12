@@ -43,4 +43,9 @@ export default class TodoList extends React.Component {
       </div>
     )
   }
+
+  componentDidMount() {
+    console.log('componend did mount')
+    notify.info('Info Message', 'App Loaded Successfully!')
+  }
 }

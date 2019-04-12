@@ -43,6 +43,11 @@ export class VerticalMenu extends Component {
       </Menu>
     )
   }
+
+  componentDidMount() {
+    console.log('componend did mount')
+    notify.info('Info Message', 'App Loaded Successfully!')
+  }
 }
 
 VerticalMenu.propTypes = {}

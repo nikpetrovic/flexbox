@@ -75,9 +75,9 @@ class SideMenuLayout extends Component {
 
     if (showSideMenu) {
       this.sideMenu.style.marginLeft = -sideMenuWidth + 'px'
-      this.sideMenu.style.marginLeft = 'unset'
+      this.sideMenu.style.marginLeft = 0
     } else {
-      this.sideMenu.style.marginLeft = 'unset'
+      this.sideMenu.style.marginLeft = 0
       this.sideMenu.style.marginLeft = -sideMenuWidth + 'px'
     }
   }
